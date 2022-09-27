@@ -29,6 +29,7 @@ website:
         contents: 
           - href: encounter-balance.qmd
           - href: create-monsters.qmd
+          - href: party_diagram.qmd
   page-footer:
     center: "Copyright 2022, Nicholas J Lyon"
     background: primary

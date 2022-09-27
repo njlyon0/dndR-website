@@ -1,0 +1,39 @@
+---
+title: "Party Diagram"
+---
+
+When designing encounters (or even a longer campaign arc) it can be helpful to know your party's strengths and weaknesses. If your party on average has great CON scores, it is nice to know that when deciding the kinds of monsters and plot lines you'll weave in.
+
+This isn't to say that you'd identify your party's weaknesses and then focus only on those (or at least not *only* that). You could just as easily play to your party's strengths and help set the stage for miraculous successes that you know are statistically probable.
+
+If this sounds valuable to you, use `party_diagram` to generate a plot of your player's ability scores either by player or by ability score. You can either provide the PC's ability scores interactively in response to prompts from the function or you can provide a named list of scores per PC.
+
+Also, I want to briefly give a huge shout out to [Tim Schatto-Eckrodt](https://kudusch.de/) for contributing this function!
+
+## Using `party_diagram`
+
+First, I'll define the party in this example because I can't interactively respond to the prompts in this website build. Let's say I have a three player party consisting of Vax, Beldra, and Rook.
+
+```{r diagram_define}
+ party_list <- list(
+   Vax = list(STR = "10", DEX = "13", CON = "14",
+              INT = "15", WIS = "16", CHA = "12"),
+   Beldra = list(STR = "20", DEX = "15", CON = "10",
+                 INT = "10", WIS = "11", CHA = "12"),
+   Rook = list(STR = "10", DEX = "10", CON = "18",
+               INT = "9", WIS = "11", CHA = "16"))
+```
+
+Now that we have that list, we can give it to `party_diagram` to check out our scores by player.
+
+```{r diagram_by-player}
+dndR::party_diagram(by = "player", pc_stats = party_list, quiet = TRUE)
+```
+
+If I want to visualize by ability score instead I only have to change the `by` argument!
+
+```{r diagram_by-ability}
+dndR::party_diagram(by = "ability", pc_stats = party_list, quiet = FALSE)
+```
+
+The `quiet` argument is useful when you entered your party's statistics interactively as it returns the simple R call you'd need to assemble it for future use. I recommend copy/pasting that output into an R script or note for later if you think it will be valuable.
