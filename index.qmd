@@ -3,7 +3,7 @@ title: "Welcome to `dndR`!"
 ---
 ## `dndR` Motivations & Goals
 
-<img src="inst/images/dndR_hex.png" width = "25%" align="right"/>
+<img src="images/dndR_hex.png" width = "25%" align="right"/>
 
 I am a big fan of both R and Dungeons and Dragons so I thought it would be a fun test of my coding skills to build an R package that supports this hobby! `dndR` includes several functions that can be broadly divided between functions for both players and dungeon masters (DMs) and functions that are intended primarily for DMs.
 

@@ -5,7 +5,7 @@ project:
 
 website:
   title: "An R Package for Dungeons & Dragons: `dndR`"
-  favicon: inst/images/dndR_hex.png
+  favicon: images/dndR_hex.png
   repo-url: https://github.com/njlyon0/dndR
   repo-actions: [issue]
   twitter-card: true
@@ -32,7 +32,7 @@ website:
   page-footer:
     center: "Copyright 2022, Nicholas J Lyon"
     background: primary
-  margin-footer: <img src="inst/images/dndR_hex.png" width = "40%" />
+  margin-footer: <img src="images/dndR_hex.png" width = "40%" />
 
 format:
   html:
