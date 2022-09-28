@@ -217,6 +217,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./create-monsters.html" class="sidebar-item-text sidebar-link">Monster Creation</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./party_diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -253,14 +258,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="at">dice =</span> <span class="st">'3d6'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
+<pre><code>[1] 11</code></pre>
 </div>
 </div>
 <p>The <code>roll</code> function returns the total of the side of the dice as a number so if you want to add multiple rolls together you can treat the function calls themselves as if they are numbers!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'3d8'</span>) <span class="sc">+</span> dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'1d4'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<pre><code>[1] 24</code></pre>
 </div>
 </div>
 <p>Also, rolling two 20-sided dice (i.e., “2d20”) is automatically assumed to be rolling with either advantage or disadvantage so it will return a message to that effect and both numbers.</p>
@@ -271,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  roll_1 roll_2
-1      4      2</code></pre>
+1      6      1</code></pre>
 </div>
 </div>
 

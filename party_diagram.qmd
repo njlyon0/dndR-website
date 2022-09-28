@@ -10,27 +10,32 @@ If this sounds valuable to you, use `party_diagram` to generate a plot of your p
 
 Also, I want to briefly give a huge shout out to [Tim Schatto-Eckrodt](https://kudusch.de/) for contributing this function!
 
-## Using `party_diagram`
+## Preparing Party Scores
 
 First, I'll define the party in this example because I can't interactively respond to the prompts in this website build. Let's say I have a three player party consisting of Vax, Beldra, and Rook.
 
 ```{r diagram_define}
- party_list <- list(
-   Vax = list(STR = "10", DEX = "13", CON = "14",
-              INT = "15", WIS = "16", CHA = "12"),
-   Beldra = list(STR = "20", DEX = "15", CON = "10",
-                 INT = "10", WIS = "11", CHA = "12"),
-   Rook = list(STR = "10", DEX = "10", CON = "18",
-               INT = "9", WIS = "11", CHA = "16"))
+party_list <- list(
+  Vax = list(STR = "10", DEX = "13", CON = "14",
+             INT = "15", WIS = "16", CHA = "12"),
+  Beldra = list(STR = "20", DEX = "15", CON = "10",
+                INT = "10", WIS = "11", CHA = "12"),
+  Rook = list(STR = "10", DEX = "10", CON = "18",
+              INT = "9", WIS = "11", CHA = "16")
+   )
 ```
 
-Now that we have that list, we can give it to `party_diagram` to check out our scores by player.
+## Party Diagram - by Player
+
+Now that we have the list of player statistics, we can give it to `party_diagram` to check out our scores by player.
 
 ```{r diagram_by-player}
 dndR::party_diagram(by = "player", pc_stats = party_list, quiet = TRUE)
 ```
 
-If I want to visualize by ability score instead I only have to change the `by` argument!
+## Party Diagram - by Ability
+
+If you want to visualize by ability score instead, you only have to change the `by` argument!
 
 ```{r diagram_by-ability}
 dndR::party_diagram(by = "ability", pc_stats = party_list, quiet = FALSE)
