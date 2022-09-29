@@ -14,4 +14,4 @@ I am a data scientist specializing in R programming. `dndR` began as a risk-free
 
 The following people contributed functions or other improvements to `dndR`. Big thanks to everyone who has helped this package grow!
 
-- [Tim Schatto-Eckrodt](https://kudusch.de/) -- `party_diagram`
+- [Tim Schatto-Eckrodt](https://kudusch.de/) -- Created `party_diagram`
