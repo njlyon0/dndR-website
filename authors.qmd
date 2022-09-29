@@ -1,0 +1,17 @@
+---
+title: "Package Authors"
+---
+
+## Creator / Author - Nick J Lyon
+
+[njlyon0.github.io](https://njlyon0.github.io/) -- <img src="images/github.png" width="2%"/> [njlyon0](https://github.com/njlyon0) -- <img src="images/twitter.png" width="2%"/> [\@scilyon](https://twitter.com/scilyon)
+
+<img src="images/nlyon.png" align="right" width="20%"/>
+
+I am a data scientist specializing in R programming. `dndR` began as a risk-free way to improve my coding skills but evolved into a package to help share my love for Dungeons and Dragons. I still use `dndR` to self-teach new tools but now I hope that others find this R package useful as well! I have been playing D&D since 2018 and have been a Dungeon Master running my own campaigns since 2021.
+
+## Contributors
+
+The following people contributed functions or other improvements to `dndR`. Big thanks to everyone who has helped this package grow!
+
+- [Tim Schatto-Eckrodt](https://kudusch.de/) -- `party_diagram`

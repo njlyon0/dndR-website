@@ -141,6 +141,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./authors.html">Package Authors</a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/njlyon0/dndR"><i class="bi bi-github" role="img">
 </i> 
@@ -342,22 +345,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">monster_creator</span>(<span class="at">party_level =</span> <span class="dv">5</span>, <span class="at">party_size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            statistic                                       value
-1          Hit_Points                                          92
-2         Armor_Class                                          16
-3          Prof_Bonus                                           3
-4        Attack_Bonus                                           7
-5             Save_DC                                          16
-6  Prof_Saving_Throws                                    WIS; CON
-7           Immune_to                                acid; poison
-8        Resistant_to fire; slashing; bludgeoning; cold; piercing
-9       Vulnerable_to                                     psychic
-10                STR                                          +1
-11                DEX                                          +2
-12                CON                                          +1
-13                INT                                          +2
-14                WIS                                          +1
-15                CHA                                          +2</code></pre>
+<pre><code>            statistic                                                 value
+1          Hit_Points                                                    92
+2         Armor_Class                                                    16
+3          Prof_Bonus                                                     3
+4        Attack_Bonus                                                     7
+5             Save_DC                                                    16
+6  Prof_Saving_Throws                                              CON; INT
+7           Immune_to                                         thunder; cold
+8        Resistant_to acid; non-magical damage; necrotic; bludgeoning; fire
+9       Vulnerable_to                                               radiant
+10                STR                                                    +2
+11                DEX                                                    +3
+12                CON                                                    +1
+13                INT                                                    +2
+14                WIS                                                    +3
+15                CHA                                                    +1</code></pre>
 </div>
 </div>
 <p>Creature’s special traits are chosen randomly so you may want to re-run the function several times (or mentally modify one or more parts of the output) to get a monster that fits your campaign and players.</p>

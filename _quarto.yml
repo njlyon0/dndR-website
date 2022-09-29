@@ -12,6 +12,7 @@ website:
   navbar:
     background: primary
     right:
+      - authors.qmd
       - icon: github
         href: https://github.com/njlyon0/dndR
   sidebar:
