@@ -121,7 +121,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 <meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Dice Rolling">
 <meta name="twitter:description" content="At its simplest, DnD involves significant amounts of dice rolling and (often) summing their values. So, dndR includes a roll function!">
 <meta name="twitter:card" content="summary">
@@ -261,14 +260,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="at">dice =</span> <span class="st">'3d6'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
+<pre><code>[1] 15</code></pre>
 </div>
 </div>
 <p>The <code>roll</code> function returns the total of the side of the dice as a number so if you want to add multiple rolls together you can treat the function calls themselves as if they are numbers!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'3d8'</span>) <span class="sc">+</span> dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'1d4'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 19</code></pre>
+<pre><code>[1] 16</code></pre>
 </div>
 </div>
 <p>Also, rolling two 20-sided dice (i.e., “2d20”) is automatically assumed to be rolling with either advantage or disadvantage so it will return a message to that effect and both numbers.</p>
@@ -279,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  roll_1 roll_2
-1      5      7</code></pre>
+1     18     11</code></pre>
 </div>
 </div>
 
