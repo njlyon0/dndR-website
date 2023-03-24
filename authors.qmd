@@ -4,7 +4,7 @@ title: "Package Authors"
 
 ## Creator / Author - Nick J Lyon
 
-[njlyon0.github.io](https://njlyon0.github.io/) -- <img src="images/github.png" width="2%"/> [njlyon0](https://github.com/njlyon0) -- <img src="images/twitter.png" width="2%"/> [\@scilyon](https://twitter.com/scilyon)
+[njlyon0.github.io](https://njlyon0.github.io/) -- {{< fa brands github >}} [njlyon0](https://github.com/njlyon0) -- {{< fa brands twitter >}} [\@scilyon](https://twitter.com/scilyon)
 
 <img src="images/nlyon.png" align="right" width="20%"/>
 
@@ -15,3 +15,4 @@ I am a data scientist specializing in R programming. `dndR` began as a risk-free
 The following people contributed functions or other improvements to `dndR`. Big thanks to everyone who has helped this package grow!
 
 - [Tim Schatto-Eckrodt](https://kudusch.de/) -- Created `party_diagram`
+- Humberto Nappo -- Created `pc_level_calc`

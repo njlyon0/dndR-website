@@ -18,7 +18,7 @@ To install the development version of this package, run the following code:
 devtools::install_github("njlyon0/dndR")
 ```
 
-I plan on submitting this package to CRAN in the future but for now the dev version is all that exists. I hope that doesn't discourage you from using `dndR`!
+This package is now on CRAN but for the dev version contains additions / modifications that may not yet be reflected in the version on CRAN.
 
 ## Encounter a Problem?
 
