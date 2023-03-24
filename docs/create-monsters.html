@@ -207,6 +207,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./create-characters.html" class="sidebar-item-text sidebar-link">Character Creation</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pc-level-calc.html" class="sidebar-item-text sidebar-link">Calculate Player Level</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -229,7 +234,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./party_diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
+  <a href="./npc-creation.html" class="sidebar-item-text sidebar-link">Non-Player Characters</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./party-diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
   </div>
 </li>
       </ul>
@@ -353,22 +363,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">monster_creator</span>(<span class="at">party_level =</span> <span class="dv">5</span>, <span class="at">party_size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            statistic                                             value
-1          Hit_Points                                                92
-2         Armor_Class                                                16
-3          Prof_Bonus                                                 3
-4        Attack_Bonus                                                 7
-5             Save_DC                                                16
-6  Prof_Saving_Throws                                          INT; CON
-7           Immune_to                                    piercing; cold
-8        Resistant_to thunder; bludgeoning; poison; necrotic; lightning
-9       Vulnerable_to                                          slashing
-10                STR                                                +1
-11                DEX                                                +1
-12                CON                                                 0
-13                INT                                                +1
-14                WIS                                                +1
-15                CHA                                                +1</code></pre>
+<pre><code>            statistic                                     value
+1          Hit_Points                                        92
+2         Armor_Class                                        16
+3          Prof_Bonus                                         3
+4        Attack_Bonus                                         7
+5             Save_DC                                        16
+6  Prof_Saving_Throws                                  CHA; INT
+7           Immune_to                             radiant; cold
+8        Resistant_to fire; force; poison; bludgeoning; thunder
+9       Vulnerable_to                                  piercing
+10                STR                                        +1
+11                DEX                                        +1
+12                CON                                        +2
+13                INT                                        +2
+14                WIS                                        +1
+15                CHA                                        +3</code></pre>
 </div>
 </div>
 <p>Creature’s special traits are chosen randomly so you may want to re-run the function several times (or mentally modify one or more parts of the output) to get a monster that fits your campaign and players.</p>

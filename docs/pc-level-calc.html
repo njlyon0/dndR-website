@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An R Package for Dungeons &amp; Dragons: dndR - Dice Rolling</title>
+<title>An R Package for Dungeons &amp; Dragons: dndR - Calculate Player Level</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,8 +126,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Dice Rolling">
-<meta name="twitter:description" content="At its simplest, DnD involves significant amounts of dice rolling and (often) summing their values. So, dndR includes a roll function!">
+<meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Calculate Player Level">
+<meta name="twitter:description" content="If your group does levelling based on experience points, dndR includes a function to help you figure out what level your PC is at a given amount of XP earned!">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Dice Rolling</h1>
+      <h1 class="quarto-secondary-nav-title">Calculate Player Level</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -199,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dice.html" class="sidebar-item-text sidebar-link active">Dice Rolling</a>
+  <a href="./dice.html" class="sidebar-item-text sidebar-link">Dice Rolling</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -209,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pc-level-calc.html" class="sidebar-item-text sidebar-link">Calculate Player Level</a>
+  <a href="./pc-level-calc.html" class="sidebar-item-text sidebar-link active">Calculate Player Level</a>
   </div>
 </li>
       </ul>
@@ -258,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Dice Rolling</h1>
+<h1 class="title d-none d-lg-block">Calculate Player Level</h1>
 </div>
 
 
@@ -273,33 +273,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>At its simplest, DnD involves significant amounts of dice rolling and (often) summing their values. So, <code>dndR</code> includes a <code>roll</code> function! This function supports ‘rolling’ up to 10 million of any of the standard dice and summing their results. “Standard” dice include the following numbers of sides: 100, 20, 12, 10, 8, 6, 4, and 2.</p>
-<p>Dice names are abbreviated as the <u>number</u> of dice to roll], a <u>lowercase “d”</u>, and the <u>type</u> of dice to roll</p>
-<p>For instance, to roll 3 six-sided dice we could do the following:</p>
+<p>If your group does levelling based on experience points, <code>dndR</code> includes a function to help you figure out what level your PC is at a given amount of XP earned!</p>
+<p>To use <code>pc_level_calc</code>, simply enter the amount of XP a given player character has earned. The function will return the current level that PC should be at as well as the minimum amount of XP to reach that level and the proficiency modifier they should be using.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="at">dice =</span> <span class="st">'3d6'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">pc_level_calc</span>(<span class="at">player_xp =</span> <span class="dv">1050</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<pre><code>  player_level xp_threshold proficiency
+3            3          900          +2</code></pre>
 </div>
 </div>
-<p>The <code>roll</code> function returns the total of the side of the dice as a number so if you want to add multiple rolls together you can treat the function calls themselves as if they are numbers!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'3d8'</span>) <span class="sc">+</span> dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'1d4'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 18</code></pre>
-</div>
-</div>
-<p>Also, rolling two 20-sided dice (i.e., “2d20”) is automatically assumed to be rolling with either advantage or disadvantage so it will return a message to that effect and both numbers.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="at">dice =</span> <span class="st">'2d20'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Assuming you're rolling for (dis)advantage so both rolls returned</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  roll_1 roll_2
-1      3     13</code></pre>
-</div>
-</div>
+<p>This function is short and sweet and hopefully it saves you a trip to your source books (or Google) to remember what the level XP thresholds are. Big thanks to <u>Humberto Nappo</u> for contributing this function!</p>
 
 
 

@@ -19,18 +19,20 @@ website:
     style: "docked"
     background: secondary
     search: true
-    contents: 
+    contents:
       - href: index.qmd
         text: "Package Overview"
       - section: "For Everyone"
-        contents: 
+        contents:
           - href: dice.qmd
           - href: create-characters.qmd
+          - href: pc-level-calc.qmd
       - section: "For DMs"
-        contents: 
+        contents:
           - href: encounter-balance.qmd
           - href: create-monsters.qmd
-          - href: party_diagram.qmd
+          - href: npc-creation.qmd
+          - href: party-diagram.qmd
   page-footer:
     center: "Copyright 2022, Nicholas J Lyon"
     background: primary

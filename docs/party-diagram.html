@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An R Package for Dungeons &amp; Dragons: dndR - Dice Rolling</title>
+<title>An R Package for Dungeons &amp; Dragons: dndR - Party Diagram</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,8 +126,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Dice Rolling">
-<meta name="twitter:description" content="At its simplest, DnD involves significant amounts of dice rolling and (often) summing their values. So, dndR includes a roll function!">
+<meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Party Diagram">
+<meta name="twitter:description" content="When designing encounters (or even a longer campaign arc) it can be helpful to know your party’s strengths and weaknesses.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Dice Rolling</h1>
+      <h1 class="quarto-secondary-nav-title">Party Diagram</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -199,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dice.html" class="sidebar-item-text sidebar-link active">Dice Rolling</a>
+  <a href="./dice.html" class="sidebar-item-text sidebar-link">Dice Rolling</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -239,7 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./party-diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
+  <a href="./party-diagram.html" class="sidebar-item-text sidebar-link active">Party Diagram</a>
   </div>
 </li>
       </ul>
@@ -249,7 +249,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#preparing-party-scores" id="toc-preparing-party-scores" class="nav-link active" data-scroll-target="#preparing-party-scores">Preparing Party Scores</a></li>
+  <li><a href="#party-diagram---by-player" id="toc-party-diagram---by-player" class="nav-link" data-scroll-target="#party-diagram---by-player">Party Diagram - by Player</a></li>
+  <li><a href="#party-diagram---by-ability" id="toc-party-diagram---by-ability" class="nav-link" data-scroll-target="#party-diagram---by-ability">Party Diagram - by Ability</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/dndR/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <p><img src="images/dndR_hex.png" width="40%"></p>
 </div></div></div>
@@ -258,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Dice Rolling</h1>
+<h1 class="title d-none d-lg-block">Party Diagram</h1>
 </div>
 
 
@@ -273,35 +281,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>At its simplest, DnD involves significant amounts of dice rolling and (often) summing their values. So, <code>dndR</code> includes a <code>roll</code> function! This function supports ‘rolling’ up to 10 million of any of the standard dice and summing their results. “Standard” dice include the following numbers of sides: 100, 20, 12, 10, 8, 6, 4, and 2.</p>
-<p>Dice names are abbreviated as the <u>number</u> of dice to roll], a <u>lowercase “d”</u>, and the <u>type</u> of dice to roll</p>
-<p>For instance, to roll 3 six-sided dice we could do the following:</p>
+<p>When designing encounters (or even a longer campaign arc) it can be helpful to know your party’s strengths and weaknesses. If your party on average has great CON scores, it is nice to know that when deciding the kinds of monsters and plot lines you’ll weave in.</p>
+<p>This isn’t to say that you’d identify your party’s weaknesses and then focus only on those (or at least not <em>only</em> that). You could just as easily play to your party’s strengths and help set the stage for miraculous successes that you know are statistically probable.</p>
+<p>If this sounds valuable to you, use <code>party_diagram</code> to generate a plot of your player’s ability scores either by player or by ability score. You can either provide the PC’s ability scores interactively in response to prompts from the function or you can provide a named list of scores per PC.</p>
+<p>Also, I want to briefly give a huge shout out to <a href="https://kudusch.de/">Tim Schatto-Eckrodt</a> for contributing this function!</p>
+<section id="preparing-party-scores" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-party-scores">Preparing Party Scores</h2>
+<p>First, I’ll define the party in this example because I can’t interactively respond to the prompts in this website build. Let’s say I have a three player party consisting of Vax, Beldra, and Rook.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="at">dice =</span> <span class="st">'3d6'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>party_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Vax =</span> <span class="fu">list</span>(<span class="at">STR =</span> <span class="st">"10"</span>, <span class="at">DEX =</span> <span class="st">"13"</span>, <span class="at">CON =</span> <span class="st">"14"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">INT =</span> <span class="st">"15"</span>, <span class="at">WIS =</span> <span class="st">"16"</span>, <span class="at">CHA =</span> <span class="st">"12"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Beldra =</span> <span class="fu">list</span>(<span class="at">STR =</span> <span class="st">"20"</span>, <span class="at">DEX =</span> <span class="st">"15"</span>, <span class="at">CON =</span> <span class="st">"10"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">INT =</span> <span class="st">"10"</span>, <span class="at">WIS =</span> <span class="st">"11"</span>, <span class="at">CHA =</span> <span class="st">"12"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rook =</span> <span class="fu">list</span>(<span class="at">STR =</span> <span class="st">"10"</span>, <span class="at">DEX =</span> <span class="st">"10"</span>, <span class="at">CON =</span> <span class="st">"18"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">INT =</span> <span class="st">"9"</span>, <span class="at">WIS =</span> <span class="st">"11"</span>, <span class="at">CHA =</span> <span class="st">"16"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>The <code>roll</code> function returns the total of the side of the dice as a number so if you want to add multiple rolls together you can treat the function calls themselves as if they are numbers!</p>
+</section>
+<section id="party-diagram---by-player" class="level2">
+<h2 class="anchored" data-anchor-id="party-diagram---by-player">Party Diagram - by Player</h2>
+<p>Now that we have the list of player statistics, we can give it to <code>party_diagram</code> to check out our scores by player.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'3d8'</span>) <span class="sc">+</span> dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="st">'1d4'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 18</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">party_diagram</span>(<span class="at">by =</span> <span class="st">"player"</span>, <span class="at">pc_stats =</span> party_list, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="party-diagram_files/figure-html/diagram_by-player-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Also, rolling two 20-sided dice (i.e., “2d20”) is automatically assumed to be rolling with either advantage or disadvantage so it will return a message to that effect and both numbers.</p>
+</section>
+<section id="party-diagram---by-ability" class="level2">
+<h2 class="anchored" data-anchor-id="party-diagram---by-ability">Party Diagram - by Ability</h2>
+<p>If you want to visualize by ability score instead, you only have to change the <code>by</code> argument!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">roll</span>(<span class="at">dice =</span> <span class="st">'2d20'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Assuming you're rolling for (dis)advantage so both rolls returned</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  roll_1 roll_2
-1      3     13</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">party_diagram</span>(<span class="at">by =</span> <span class="st">"ability"</span>, <span class="at">pc_stats =</span> party_list, <span class="at">quiet =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="party-diagram_files/figure-html/diagram_by-ability-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>The <code>quiet</code> argument is useful when you entered your party’s statistics interactively as it returns the simple R call you’d need to assemble it for future use. I recommend copy/pasting that output into an R script or note for later if you think it will be valuable.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

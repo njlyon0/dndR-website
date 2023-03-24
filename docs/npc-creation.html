@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>An R Package for Dungeons &amp; Dragons: dndR - Party Diagram</title>
+<title>An R Package for Dungeons &amp; Dragons: dndR - Non-Player Characters</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,8 +126,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Party Diagram">
-<meta name="twitter:description" content="When designing encounters (or even a longer campaign arc) it can be helpful to know your party’s strengths and weaknesses.">
+<meta name="twitter:title" content="An R Package for Dungeons &amp; Dragons: dndR - Non-Player Characters">
+<meta name="twitter:description" content="When I’m DMing, I sometimes struggle with improvising background NPCs (non-player characters) that aren’t relevant to the current questlines when my player ask about them.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Party Diagram</h1>
+      <h1 class="quarto-secondary-nav-title">Non-Player Characters</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -207,6 +207,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./create-characters.html" class="sidebar-item-text sidebar-link">Character Creation</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pc-level-calc.html" class="sidebar-item-text sidebar-link">Calculate Player Level</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -229,7 +234,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./party_diagram.html" class="sidebar-item-text sidebar-link active">Party Diagram</a>
+  <a href="./npc-creation.html" class="sidebar-item-text sidebar-link active">Non-Player Characters</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./party-diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
   </div>
 </li>
       </ul>
@@ -239,15 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#preparing-party-scores" id="toc-preparing-party-scores" class="nav-link active" data-scroll-target="#preparing-party-scores">Preparing Party Scores</a></li>
-  <li><a href="#party-diagram---by-player" id="toc-party-diagram---by-player" class="nav-link" data-scroll-target="#party-diagram---by-player">Party Diagram - by Player</a></li>
-  <li><a href="#party-diagram---by-ability" id="toc-party-diagram---by-ability" class="nav-link" data-scroll-target="#party-diagram---by-ability">Party Diagram - by Ability</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/njlyon0/dndR/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <p><img src="images/dndR_hex.png" width="40%"></p>
 </div></div></div>
@@ -256,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Party Diagram</h1>
+<h1 class="title d-none d-lg-block">Non-Player Characters</h1>
 </div>
 
 
@@ -271,47 +273,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>When designing encounters (or even a longer campaign arc) it can be helpful to know your party’s strengths and weaknesses. If your party on average has great CON scores, it is nice to know that when deciding the kinds of monsters and plot lines you’ll weave in.</p>
-<p>This isn’t to say that you’d identify your party’s weaknesses and then focus only on those (or at least not <em>only</em> that). You could just as easily play to your party’s strengths and help set the stage for miraculous successes that you know are statistically probable.</p>
-<p>If this sounds valuable to you, use <code>party_diagram</code> to generate a plot of your player’s ability scores either by player or by ability score. You can either provide the PC’s ability scores interactively in response to prompts from the function or you can provide a named list of scores per PC.</p>
-<p>Also, I want to briefly give a huge shout out to <a href="https://kudusch.de/">Tim Schatto-Eckrodt</a> for contributing this function!</p>
-<section id="preparing-party-scores" class="level2">
-<h2 class="anchored" data-anchor-id="preparing-party-scores">Preparing Party Scores</h2>
-<p>First, I’ll define the party in this example because I can’t interactively respond to the prompts in this website build. Let’s say I have a three player party consisting of Vax, Beldra, and Rook.</p>
+<blockquote class="blockquote">
+<p><strong>DM:</strong> “You walk into the tavern and glance around the poorly lit room. In a corner booth, you catch sight of the betrayer you’ve been hunting these past two weeks–Tymoth Grissel. You nearly had him in the Sootpile mountains but that rockslide allowed him to escape by the skin of his teeth. He won’t escape this time.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Player:</strong> “Cool, cool…but who <em>else</em> is in the tavern?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>DM:</strong> …</p>
+</blockquote>
+<p>When I’m DMing, I sometimes struggle with improvising background NPCs (non-player characters) that aren’t relevant to the current questlines when my player ask about them. To hopefully help fellow DMs, <code>dndR</code> includes a function to let you quickly respond in situations like the one I’ve described above.</p>
+<p><code>npc_creator</code> quickly selects a random race and job for however many NPCs you need. The function returns this as a dataframe in case you had some follow-up processing you wished to do but I find myself running the function without assigning it to an object so that it prints in the console.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>party_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Vax =</span> <span class="fu">list</span>(<span class="at">STR =</span> <span class="st">"10"</span>, <span class="at">DEX =</span> <span class="st">"13"</span>, <span class="at">CON =</span> <span class="st">"14"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">INT =</span> <span class="st">"15"</span>, <span class="at">WIS =</span> <span class="st">"16"</span>, <span class="at">CHA =</span> <span class="st">"12"</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Beldra =</span> <span class="fu">list</span>(<span class="at">STR =</span> <span class="st">"20"</span>, <span class="at">DEX =</span> <span class="st">"15"</span>, <span class="at">CON =</span> <span class="st">"10"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">INT =</span> <span class="st">"10"</span>, <span class="at">WIS =</span> <span class="st">"11"</span>, <span class="at">CHA =</span> <span class="st">"12"</span>),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rook =</span> <span class="fu">list</span>(<span class="at">STR =</span> <span class="st">"10"</span>, <span class="at">DEX =</span> <span class="st">"10"</span>, <span class="at">CON =</span> <span class="st">"18"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">INT =</span> <span class="st">"9"</span>, <span class="at">WIS =</span> <span class="st">"11"</span>, <span class="at">CHA =</span> <span class="st">"16"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="party-diagram---by-player" class="level2">
-<h2 class="anchored" data-anchor-id="party-diagram---by-player">Party Diagram - by Player</h2>
-<p>Now that we have the list of player statistics, we can give it to <code>party_diagram</code> to check out our scores by player.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">party_diagram</span>(<span class="at">by =</span> <span class="st">"player"</span>, <span class="at">pc_stats =</span> party_list, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="party_diagram_files/figure-html/diagram_by-player-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">npc_creator</span>(<span class="at">npc_count =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Race        Job
+1     drow       sage
+2 half-elf inquisitor
+3 dark elf    acolyte</code></pre>
 </div>
 </div>
-</section>
-<section id="party-diagram---by-ability" class="level2">
-<h2 class="anchored" data-anchor-id="party-diagram---by-ability">Party Diagram - by Ability</h2>
-<p>If you want to visualize by ability score instead, you only have to change the <code>by</code> argument!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">party_diagram</span>(<span class="at">by =</span> <span class="st">"ability"</span>, <span class="at">pc_stats =</span> party_list, <span class="at">quiet =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="party_diagram_files/figure-html/diagram_by-ability-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>The <code>quiet</code> argument is useful when you entered your party’s statistics interactively as it returns the simple R call you’d need to assemble it for future use. I recommend copy/pasting that output into an R script or note for later if you think it will be valuable.</p>
+<p>If your players decide to go chat with the goblin carpenter passing them on the street (or whoever else they cross paths with) you can then improv more details about the NPC as needed. Hopefully this function helps you skip the “uh…” step of trying to on-the-fly come up with some brief NPC descriptions.</p>
+<p>Note that because both NPC race and job are selected randomly you may wind up with some unusual combinations. I hope that adds to the fun but feel free to re-run <code>npc_creator</code> until you get NPCs that fit your world and intended tone.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

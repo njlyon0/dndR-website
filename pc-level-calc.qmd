@@ -1,0 +1,13 @@
+---
+title: "Calculate Player Level"
+---
+
+If your group does levelling based on experience points, `dndR` includes a function to help you figure out what level your PC is at a given amount of XP earned!
+
+To use `pc_level_calc`, simply enter the amount of XP a given player character has earned. The function will return the current level that PC should be at as well as the minimum amount of XP to reach that level and the proficiency modifier they should be using.
+
+```{r pc_level_calc_fxn}
+dndR::pc_level_calc(player_xp = 1050)
+```
+
+This function is short and sweet and hopefully it saves you a trip to your source books (or Google) to remember what the level XP thresholds are. Big thanks to <u>Humberto Nappo</u> for contributing this function!

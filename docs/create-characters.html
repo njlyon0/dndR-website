@@ -207,6 +207,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./create-characters.html" class="sidebar-item-text sidebar-link active">Character Creation</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pc-level-calc.html" class="sidebar-item-text sidebar-link">Calculate Player Level</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -229,7 +234,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./party_diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
+  <a href="./npc-creation.html" class="sidebar-item-text sidebar-link">Non-Player Characters</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./party-diagram.html" class="sidebar-item-text sidebar-link">Party Diagram</a>
   </div>
 </li>
       </ul>
@@ -279,12 +289,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">pc_creator</span>(<span class="at">class =</span> <span class="st">"barbarian"</span>, <span class="at">race =</span> <span class="st">"half orc"</span>, <span class="at">score_method =</span> <span class="st">"4d6"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ability raw_score race_modifier score roll_modifier
-1     STR        14             2    16            +3
-2     DEX         7             0     7            -2
-3     CON        12             1    13            +1
-4     INT        10             0    10             0
-5     WIS        11             0    11             0
-6     CHA         7             0     7            -2</code></pre>
+1     STR        17             2    19            +4
+2     DEX        10             0    10             0
+3     CON        15             1    16            +3
+4     INT         9             0     9            -1
+5     WIS        12             0    12            +1
+6     CHA        13             0    13            +1</code></pre>
 </div>
 </div>
 <p>The highest two scores are assigned based on the “quick build” recommendations in the source material (e.g., if you’re a fighter, the Player’s Handbook recommends making your top score strength and next best score constitution). The remaining four scores are assigned randomly.</p>
@@ -298,12 +308,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class_block</span>(<span class="at">class =</span> <span class="st">"wizard"</span>, <span class="at">score_method =</span> <span class="st">"4d6"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ability score
-1     STR     8
-2     DEX    10
+1     STR    12
+2     DEX    13
 3     CON    14
 4     INT    15
-5     WIS    14
-6     CHA    14</code></pre>
+5     WIS    11
+6     CHA     8</code></pre>
 </div>
 </div>
 <p>Also like <code>pc_creator</code>, it only works with supported classes so run <code>dndR::dnd_classes()</code> to see which classes I have currently built in.</p>
@@ -316,12 +326,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dndR<span class="sc">::</span><span class="fu">ability_scores</span>(<span class="at">method =</span> <span class="st">"4d6"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ability score
-1      V1     8
-2      V2    11
-3      V3    12
-4      V4    12
-5      V5    14
-6      V6    13</code></pre>
+1      V1    11
+2      V2     9
+3      V3    15
+4      V4     4
+5      V5    18
+6      V6     9</code></pre>
 </div>
 </div>
 
